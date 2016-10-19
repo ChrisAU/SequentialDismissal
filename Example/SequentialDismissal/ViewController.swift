@@ -32,12 +32,20 @@ class ViewController: UIViewController {
         let b = dummyViewController()
         let c = dummyViewController()
         let d = dummyViewController()
-        
-        self.sequentialPresentation(of: [a, b, c, d], animated: true) { [weak self] in
-            print("Presented all")
-            self?.sequentialDismiss(animated: true, completion: {
-                print("Dismissed all")
-            })
+
+        presentOnTop(a)
+        presentOnTop(b)
+        presentOnTop(c)
+        presentOnTop(d) {
+            b.sequentialDismiss() { // Dismiss c, d
+                self.sequentialPresentation(of: [c, d]) {
+                    c.sequentialDismiss() { // Dismiss d
+                        self.sequentialPresentation(of: [d]) {
+                            self.sequentialDismiss()    // Dismiss a, b, c, d
+                        }
+                    }
+                }
+            }
         }
     }
 
