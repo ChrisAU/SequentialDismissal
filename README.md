@@ -25,7 +25,7 @@ presentOnTop(d, animated: true, completion: { })  // Showing Optional fields
 
 **sequentialPresentation**:
 
-Presentation will first wait until any view controllers that are currently being dismissed or presented have completed before then presenting the provided view controllers on top of the stack (meaning you can call this method from the Root View Controller even if it's already presenting something).
+Presentation will first wait until any view controllers that are currently being dismissed or presented have completed before presenting the provided view controllers sequentially on top of the stack.
 
 *Example:*
 ````
