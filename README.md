@@ -3,7 +3,7 @@ Extension for sequential Presentation and Dismissal of View Controllers
 
 Presentation will occur on top of stack, meaning you can call these methods from anywhere in the view controller hierarchy. Dismissal will start from top of stack and finish when it reaches the caller view controller.
 
-Create some dummy view controllers to be used in below examples...
+First, we'll create some dummy view controllers to be used in below examples...
 ````
 let a = dummyViewController()
 let b = dummyViewController()
